@@ -1,0 +1,22 @@
+<div class="w-screen h-screen flex justify-center items-center">
+  <div class="bg-zinc-200 rounded p-12 flex flex-col relative">
+    <div
+      class="w-14 h-14 absolute -top-5 right-0 border-zinc-200 border-solid border-4 left-0 m-auto rounded-full z-1 flex items-center justify-center bg-zinc-50">
+      👨‍💻
+    </div>
+
+    <p class="text-center mb-2 font-bold">Sistema ABC</p>
+
+    <div class="mb-4">
+      <p *ngFor="let user of users" class="text-zinc-800 mt-2">
+        {{ user.name }}
+      </p>
+    </div>
+
+    <button
+      (click)="onBack()"
+      class="transition delay-75 bg-zinc-700 hover:bg-zinc-800 rounded p-2 text-zinc-50">
+      Voltar
+    </button>
+  </div>
+</div>

@@ -6,22 +6,144 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Angular Resolver
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Angular CLI
 
-## Build
+### **_15.1.3_**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Node
 
-## Running unit tests
+### **_18.13.0_**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Packages
 
-## Running end-to-end tests
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,ts}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
 
-## Further help
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### ESLint
+
+```bash
+ng add @angular-eslint/schematics
+```
+
+### .eslintrc.json
+
+```json
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "excludedFiles": [
+        "*inline-template-*.component.html"
+      ],
+      "extends": [
+        // "plugin:@angular-eslint/template/recommended",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "prettier/prettier": [
+          "error",
+          {
+            "parser": "angular"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+```
+
+### TailwindCSS
+
+### Prettier
+
+```bash
+npm install prettier -D
+npx prettier -write .
+npm install prettier-eslint eslint-config-prettier eslint-plugin-prettier -D
+# Create Files
+.prettierignore
+.prettierrc.json
+```
+
+### .prettierrc.json
+
+```json
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "semi": true,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "trailingComma": "es5",
+  "bracketSameLine": true,
+  "printWidth": 80
+}
+
+```
+
+### Url
+
+```json
+{
+  "url": "https://jsonplaceholder.typicode.com/users"
+}
+```
